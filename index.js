@@ -13,14 +13,20 @@ const schema = buildSchema(`
         courses(topic: String): [Course]
     }
     
+    type Mutation {
+        updateCourseTopic(id: Int!, topic: String!): Course
+    }
+    
     type Course {
         id: Int
         title: String
         author: String
+        description: String
         topic: String
         url: String
     }
 `);
+
 let getCourse = (args) => courses.find(course => course.id === args.id);
 
 let getCourses = (args) => {
@@ -31,10 +37,21 @@ let getCourses = (args) => {
     return courses;
 };
 
+let updateCourseTopic = ({id, topic}) => {
+    courses.map(course => {
+        if (course.id === id) {
+            course.topic = topic;
+            return course;
+        }
+    });
+    return courses.find(course => course.id === id);
+};
+
 
 const root = {
     course: getCourse,
-    courses: getCourses
+    courses: getCourses,
+    updateCourseTopic
 };
 
 app.use('/graphql', express_graphql({
