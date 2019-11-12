@@ -1,0 +1,25 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Nodejs Course",
+      "author": "Juan Moreno",
+      "topic": "Rust",
+      "url": "none"
+    },
+    {
+      "id": 2,
+      "title": "Rust programming language",
+      "Author": "Juan Moreno",
+      "topic": "Javascript",
+      "url": "none"
+    },
+    {
+      "id": 3,
+      "title": "Redux Course",
+      "Author": "Juan Moreno",
+      "topic": "Javascript",
+      "url": "none"
+    }
+  ]
+}
